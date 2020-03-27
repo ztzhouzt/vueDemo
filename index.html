@@ -8,14 +8,26 @@
 </head>
 <body>
     <!--MVVM： M=>Model; V=>视图; VM=>ViewModel --> 
-    <!--{{}} 插值表达式 可以在其中写上其它内容-->
-    <!--v-cloak -->
-   <a>1</a> 
-    <a href="">test</a>   
+    <!--{{}} 插值表达式 可以在当前标签写上其它内容-->
+    <!--v-cloak 让用户感知不到{{}}-->
+    <!--v-text 1.会覆盖所在标签的所有内容  2.可以直接渲染，不会出现{{}}闪烁的情况-->
+    <!--v-html 可以把文本渲染成html-->
+    <!--v-bind 对标签属性进行绑定 简写： -->
+    <!--v-on   绑定事件 简写@ -->
+
     <div id="app" v-cloak>
-       <p>{{message}}</p> 
-       <a> </a>
-       <p v-text="message"></p>
+       <!-- <p>{{message}} 你来了吗？</p>
+       <p v-text="message">我来啊，你呢。</p> -->
+      
+       <!-- <p v-html="htmlText"></p>
+       <p v-text="htmlText"></p> -->
+
+       <!-- <input type="button"  v-bind:value="buttonText" v-on:click="clickMe"> -->
+       <!-- 简写 -->
+       <input type="button"  :value="buttonText" @click="clickMe">
+
+       
+
     </div>
 </body>
 
@@ -23,8 +35,16 @@
     var vm=new Vue({
          el:"#app",
          data:{
-             message:"Hellow World"
-         }
+             message:"Hellow World",
+             htmlText:"<b>我是文本</b>",
+             buttonText:"我是一个按钮"
+         },
+         methods:{
+            clickMe()
+            {
+              this.buttonText="保存";
+            }
+        },
     });
 
 </script>
