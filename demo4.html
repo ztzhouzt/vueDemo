@@ -7,13 +7,21 @@
     <script src="vue.js"></script>
 </head>
 <body>
+    
     <div id="app">
-      <!-- v-model 双向绑定 -->
+      <!-- v-model 双向绑定 只能绑定value属性-->
 
       <input type="text" v-Model="score">
-      <input type="range" v-model="score" min="0" max="100">
-
+      <input type="range" v-model="score" min="0" :max="maxValue">
+      <br>
+      <br>
+       <select v-model="maxValue">
+           <option value="100">100</option>           
+           <option value="1000">1000</option>
+           <option value="10000">10000</option>
+       </select>
     </div>
+
 </body>
 </html>
 <script>
@@ -21,9 +29,9 @@
    var vm=new Vue({
           el:"#app",
           data:{
-              score:50
+              score:50,
+              maxValue:100
           }
-
    });
 
 </script>

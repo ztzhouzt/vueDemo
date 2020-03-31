@@ -8,10 +8,16 @@
 </head>
 <body>
     <div id="app">
-      <!-- v-model 双向绑定 -->
-      {{msg}}
+      <!-- v-model 双向绑定 只能绑定value属性-->
+      
+      <!-- :class 绑定样式 1.绑定数组  2.三元表达式  3.数组嵌套 -->
+      <!-- :style 1.键值对直接填写法   2.键值对对象符合json格式   3.多个data可以用数组接收-->
 
-      <input type="text" v-Model="msg">
+      <!-- <p :class="['backg',flag?'fontcolor':'fontcolor1']">{{msg}}</p>  -->
+      <!-- <p :class="['backg',{'fontcolor':flag}]">{{msg}}</p>  -->
+
+      <p :style="{'background-color':'brown'}">{{msg}}</p>
+      <!-- <input type="text" v-Model="msg"> -->
 
 
     </div>
@@ -22,9 +28,22 @@
    var vm=new Vue({
           el:"#app",
           data:{
-              msg:"Hello World"
+              msg:"Hello World",
+              flag:true
           }
 
    });
 
 </script>
+
+<style>
+ .backg{
+     background-color:aqua;
+ }
+ .fontcolor{
+     color:red;
+ }
+ .fontcolor1{
+     color:blue;
+ }
+</style>
