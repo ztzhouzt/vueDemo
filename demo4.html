@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+      <!-- v-model 双向绑定 -->
+
+      <input type="text" v-Model="score">
+      <input type="range" v-model="score" min="0" max="100">
+
+    </div>
+</body>
+</html>
+<script>
+
+   var vm=new Vue({
+          el:"#app",
+          data:{
+              score:50
+          }
+
+   });
+
+</script>
